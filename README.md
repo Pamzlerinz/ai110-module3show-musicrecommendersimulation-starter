@@ -205,6 +205,6 @@ Read and complete `model_card.md`:
 
 [**Model Card**](model_card.md)
 
-<!-- TODO (write in your own words): 1–2 paragraphs on
-  - how recommenders turn data into predictions
-  - where bias or unfairness could show up in systems like this -->
+Building this showed me that a recommender is really two simple steps repeated: give every song a score, then sort. The "prediction" is just a guess that a higher score means you'll like the song more, and the score is only as good as the features and weights behind it. Changing one number (halving genre, doubling energy) changed which songs a happy pop listener saw, without touching any data. Real platforms do the same thing at a much larger scale, with millions of songs and with listening behavior from other users in place of my hand-picked weights.
+
+Bias showed up in ways I didn't expect from such a small program. Exact word matching meant a k-pop fan got no genre credit at all, and "indie pop" didn't count as pop. The catalog also gave lofi fans three good matches while most other genres had one. Neither of those is about the music itself; they come from how the data was labeled and collected. In a real app, that kind of gap could keep pushing listeners toward the genres and artists that are already well represented, and make it harder for smaller ones to be found.

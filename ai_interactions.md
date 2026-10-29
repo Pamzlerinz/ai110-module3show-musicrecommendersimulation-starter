@@ -23,9 +23,11 @@ I gave Claude Code (agent mode in VS Code) the full project instructions and had
 
 **What did you verify or fix manually?**
 
-<!-- TODO: fill in what YOU checked — e.g. re-ran `python -m src.main` yourself, checked a score by hand
-     (Sunrise City: 2.0 + 1.0 + 1.5×(1−0.02) = 4.47), checked whether the rankings matched your intuition,
-     and edited anything in the docs you disagreed with. -->
+- Re-ran `pytest` and `python -m src.main` (both `balanced` and `energy_focused`) myself and confirmed the output matched what was pasted into the docs.
+- Checked one score by hand: Sunrise City for the pop/happy profile = 2.0 (genre) + 1.0 (mood) + 1.5 × (1 − |0.82 − 0.80|) = 4.47, which matches the terminal.
+- Checked that the energy rule rewards *closeness* instead of higher energy: for the Chill Lofi profile (target 0.35), Library Rain at exactly 0.35 got the full +1.50.
+- Compared the rankings to my own intuition. Chill Lofi and Deep Intense Rock felt right. Gym Hero at #2 for "Happy Pop" did not, and I wrote that up as a limitation instead of hiding it by changing weights.
+- Read through the generated README and model card, and confirmed that the numbers quoted in the text (e.g. the 3.60 vs 1.48 gap shrinking to 3.20 vs 2.97) match the actual output.
 
 ---
 

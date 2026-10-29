@@ -329,8 +329,10 @@ The automated tests (`pytest`) also check that the OOP `Recommender` ranks a pop
 
 ## 9. Personal Reflection  
 
-<!-- TODO (write in your own words — this section is graded on YOUR reflection):
-  - What was your biggest learning moment during this project?
-  - How did using AI tools help you, and when did you need to double-check them?
-  - What surprised you about how simple algorithms can still "feel" like recommendations?
-  - What would you try next if you extended this project? -->
+**Biggest learning moment:** I learned that the weights decide what the system thinks matters, more than the features do. All five profiles used the same four rules. But because a genre match was worth 2 points and energy could add at most 1.5, a quiet folk ballad beat every energetic song for a user who asked for high energy. Nothing in the code was "wrong"; the problem was in the numbers I picked. I hadn't expected a design choice that small to have that much effect.
+
+**Using AI tools:** The AI coding assistant was fastest at the repetitive parts: CSV loading, the sort-and-slice ranking, formatting the terminal output, and turning real output into the docs. It also caught an import bug in the starter `main.py`. I still had to check that the results made sense. I re-ran the program myself and worked out one score by hand (Sunrise City: 2.0 + 1.0 + 1.5 × 0.98 = 4.47). I also had to decide for myself whether results like "Gym Hero for Happy Pop" were a bug or a real limitation. The AI could explain *why* a song ranked first, but not whether that ranking was *right* for a listener.
+
+**What surprised me:** Simple addition already feels like a recommendation. Once each result came with reasons like "genre match (+2.00)", the list felt thoughtful, even though it's just a few if-statements and a subtraction. That made me realize how much of the "intelligence" people sense in apps like Spotify may come from explanations and good data, and how easy it would be to trust a system's output without seeing the rules behind it.
+
+**What I'd try next:** I'd add fuzzy genre matching (so "indie pop" counts toward "pop") and a diversity penalty so one artist or genre can't fill the top 5. I'd also like to try a tiny version of collaborative filtering with a few fake users, to compare it with this content-based approach.
